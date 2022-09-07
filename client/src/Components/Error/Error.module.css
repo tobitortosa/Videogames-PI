@@ -1,0 +1,58 @@
+.container {
+  border: 2px solid rgba(113, 92, 195, 0.8);
+  border-radius: 5%;
+  height: 50vh;
+  width: 22vw;
+  text-align: center;
+  transition: .3s;
+}
+
+.container:hover{
+    border: 2px solid #ffffffb2;
+    transition: .3s;
+}
+
+.title {
+  margin: 20px 0px 40px 0px;
+  font-size: 31px;
+}
+
+.txtContainer h3 {
+  font-size: 25px;
+}
+
+.emoji{
+    margin-top: 20px;
+    font-size: 150px;
+}
+
+.txtContainer p {
+  font-size: 21px;
+  margin: 10px;
+}
+
+.txtContainer {
+  text-align: center;
+}
+
+#clearBtn {
+  background-color: transparent;
+  border: none;
+  font-size: 21px;
+  color: rgba(254, 1, 94, 0.6);
+}
+#clearBtn:hover {
+  color: rgba(254, 1, 94, 0.856);
+  text-decoration: underline;
+}
+
+
+#createBtn{
+    text-decoration: none;
+    color: rgba(254, 1, 94, 0.6);
+}
+
+#createBtn:hover{
+    color: rgba(254, 1, 94, 0.856);
+    text-decoration: underline;
+}

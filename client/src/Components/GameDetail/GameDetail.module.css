@@ -1,0 +1,101 @@
+body{
+    background-image: url("./bg.jpg");
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-size: 100% auto;
+}
+
+
+.loader{
+    position: absolute;
+    left: 46.5vw;
+    top: 40vh;
+}
+
+.mainContainer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  color: #ffffffe6;
+  display: flex;
+  flex-direction: center;
+  justify-content: center;
+}
+
+.allContainer{
+    margin-top: 90px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ratingAndReleased{
+    margin-left: 10px;
+}
+
+.txtContainer {
+  min-height: 40vh;
+  width: 35vw;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.starsContainer {
+  display: flex;
+}
+
+.txtLeft {
+  min-width: 15vw;
+}
+.txtRight {
+  min-width: 15vw;
+}
+
+.genresAndPlatforms {
+  display: flex;
+}
+
+.txtContainer h1 {
+  margin-left: 10px;
+}
+.txtContainer p {
+  margin-left: 10px;
+  font-size: 16px;
+}
+
+.allContainer {
+  width: 90vw;
+}
+
+#descriptionTitle {
+  margin: 2vh 14vw 0vh 14vw;
+  font-size: 22px;
+}
+
+#description {
+  margin: 1vh 14vw 0vh 14vw;
+  font-size: 17px;
+}
+
+.txtContainer h2 {
+  margin-left: 10px;
+  font-size: 20px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+#img {
+  max-width: 668px;
+  min-width: 668px;
+  max-height: 380px;
+  min-height: 380px;
+  border-radius: 20px;
+}
+
+

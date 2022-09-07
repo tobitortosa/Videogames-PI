@@ -1,0 +1,53 @@
+.searchGame {
+  margin: 10px 20vw 9px 0px;  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.clearbutton{
+  display: none;
+}
+
+
+.searchGame input {
+  height: 35px;
+  width: 35vw;
+  padding-left: 20px;
+  border: solid 2px #ffffffe6;
+  border-radius: 40px;
+  background-color: rgba(113, 92, 195, 0.541);
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+#searchBtn{
+  position: relative;
+  right: 3.6vw;
+  font-size: 16px;
+  height: 36px;
+  width: 3.5vw;
+  border-bottom-right-radius: 40px;
+  border-top-right-radius: 40px;
+  background-color: rgba(254, 1, 94, 0.6);
+  color: white;
+  border: none;
+  transition: .2s;
+}
+
+#searchBtn:hover{
+  background-color: rgba(254, 1, 94, 0.8);
+}
+
+
+.searchGame button:hover {
+  background-color: rgba(254, 1, 94, 0.774);
+  cursor: pointer;
+  transition: .2s;
+} 
+
+.searchGame input:focus {
+  outline: none;
+  background-color: rgba(113, 92, 195, 0.75);
+  border: solid 2px rgba(254, 1, 94, 0.9);
+}
