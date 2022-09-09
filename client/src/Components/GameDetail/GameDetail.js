@@ -1,6 +1,6 @@
 import React from "react";
 import s from "./GameDetail.module.css";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getGamesById, clearGame } from "../../redux/actions";
 import { useParams } from "react-router-dom";
@@ -15,12 +15,12 @@ export default function GameDetail() {
   useEffect(() => {
     dispatch(clearGame());
     dispatch(getGamesById(id));
-  }, []);
+  }, [dispatch, id]);
 
   const cleanText = game?.description.replace(/<\/?[^>]+(>|$)/g, "");
   return (
     <div className={s.mainContainer}>
-      {game ? <NavBar menu={true}/> : null}
+      {game ? <NavBar menu={true} /> : null}
       {game ? (
         <div className={s.allContainer}>
           <div className={s.container}>

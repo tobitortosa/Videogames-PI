@@ -42,7 +42,6 @@ export default function GamesBox() {
   // Change Page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-
   console.log(loading, "loading");
 
   return (
@@ -53,14 +52,14 @@ export default function GamesBox() {
       className={s.gamesboxContainer}
     >
       {(allGames.length === 0 && !loading) || allGames.length ? (
-        <FilterBox setCurrentPage={setCurrentPage}/>
+        <FilterBox setCurrentPage={setCurrentPage} />
       ) : null}
 
       <div className={s.gamescontainer}>
         {allGames.length === 0 && loading ? (
           <Loading />
         ) : allGames.length === 0 && !loading ? (
-          <Error/>
+          <Error />
         ) : (
           currentGames.map((g) => {
             return (

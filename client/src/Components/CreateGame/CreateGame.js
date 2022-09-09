@@ -6,7 +6,6 @@ import { getAllPlatforms, getAllGenres } from "../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import Loading from "../Loading/Loading";
 import { createGame } from "../../redux/actions";
-import { useNavigate } from "react-router-dom";
 import validate from "./validators";
 // Ruta de creación de videojuegos: debe contener:
 
@@ -24,10 +23,9 @@ export default function CreateGame() {
   const dispatch = useDispatch();
   const platforms = useSelector((state) => state.allPlatforms);
   const genres = useSelector((state) => state.allGenres);
-  const navigate = useNavigate();
   const [error, setError] = useState({});
   const [created, setCreated] = useState(false);
-  const [checkboxStates, setCheckBoxStates] = useState({
+  const [checkboxStates] = useState({
     genres: {
       Action: false,
       Indie: false,
@@ -115,7 +113,11 @@ export default function CreateGame() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (input.name.length < 3 || input.description.length < 10 || input.released === "") {
+    if (
+      input.name.length < 3 ||
+      input.description.length < 10 ||
+      input.released === ""
+    ) {
       return alert("You still have required inputs to complete");
     } else if (input.genres.length === 0 || platforms.length === 0) {
       return alert("You have to choose at least one Genre and one Platform");
@@ -126,7 +128,7 @@ export default function CreateGame() {
     } else {
       dispatch(createGame(input));
       setCreated(true);
-      console.log(input)
+      console.log(input);
       setInput({
         name: "",
         released: "",
@@ -274,18 +276,4 @@ export default function CreateGame() {
       </div>
     </div>
   );
-}
-
-{
-  /* <input
-value={input.searchGame}
-type="text"
-name="searchGame"
-onChange={handleInputChange}
-autoComplete="off"
-spellCheck="false"
-placeholder={
-  allGames.length === 0 ? "Loading..." : "Search for a videogame..."
-}
-/> */
 }

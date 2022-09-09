@@ -25,7 +25,9 @@ export default function NavBar(props) {
           </Link>
           {props.create ? (
             <Link to="/create">
-              <button id={s.bcreate} className={s.underline}>Create Game</button>
+              <button id={s.bcreate} className={s.underline}>
+                Create Game
+              </button>
             </Link>
           ) : null}
 

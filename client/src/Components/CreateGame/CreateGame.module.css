@@ -111,14 +111,9 @@
   transition: 0.3s;
 }
 
-.txt{
+.txt {
   margin-left: 10px;
 }
-
-
-
-
-
 
 @media (max-width: 1300px) {
   .formContainer {

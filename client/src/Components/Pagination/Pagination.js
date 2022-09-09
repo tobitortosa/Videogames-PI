@@ -8,9 +8,15 @@ export default function Pagination({ gamesPerPage, totalGames, paginate }) {
     pageNumbers.push(i);
   }
 
-  return <nav className={s.pagination}>
-    {pageNumbers.map(number => {
-        return <button key={number} onClick={() => paginate(number)}>{number}</button>
-    })}
-  </nav>;
+  return (
+    <nav className={s.pagination}>
+      {pageNumbers.map((number) => {
+        return (
+          <button key={number} onClick={() => paginate(number)}>
+            {number}
+          </button>
+        );
+      })}
+    </nav>
+  );
 }

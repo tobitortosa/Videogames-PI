@@ -1,6 +1,7 @@
 // Corroborar si la fecha ingresada tiene formato valido
 export function isValidDate(str) {
-  const regexDate = /^[1-2][089]\d{2}-(0?[1-9]|1[012])-(0?[1-9]|[12][0-9]|3[01])$/;
+  const regexDate =
+    /^[1-2][089]\d{2}-(0?[1-9]|1[012])-(0?[1-9]|[12][0-9]|3[01])$/;
   return regexDate.test(str);
 }
 
@@ -24,8 +25,7 @@ export default function validate(input) {
   } else if (input.name.trim() === "") {
     error.name = "Name may not be empty";
   } else if (input.name.length > 50 || input.name.length < 3) {
-    error.name =
-      `Characters in the name must be between 50 and 3`;
+    error.name = `Characters in the name must be between 50 and 3`;
   }
 
   if (!input.description) {

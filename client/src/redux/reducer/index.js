@@ -43,8 +43,8 @@ const rootReducer = (state = initialState, action) => {
       };
     case FILTER_BY_GENRE:
       let filterGamesGenre = [];
-      state.allGames.map((games) => {
-        games.genres.map((genre) => {
+      state.allGames.forEach((games) => {
+        games.genres.forEach((genre) => {
           if (genre.name === action.payload) {
             filterGamesGenre.push(games);
           }
@@ -61,8 +61,8 @@ const rootReducer = (state = initialState, action) => {
       };
     case FILTER_BY_PLATFORM:
       let filterGamesPlatform = [];
-      state.allGames.map((games) => {
-        games.platforms.map((platform) => {
+      state.allGames.forEach((games) => {
+        games.platforms.forEach((platform) => {
           if (platform.name === action.payload) {
             filterGamesPlatform.push(games);
           }

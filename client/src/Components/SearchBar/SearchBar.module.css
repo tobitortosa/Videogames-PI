@@ -50,7 +50,6 @@
   border: solid 2px rgba(254, 1, 94, 0.9);
 }
 
-
 @media (max-width: 1300px) {
   .searchGame input {
     height: 25px;
@@ -77,7 +76,5 @@
     border: none;
     transition: 0.2s;
     margin-top: 10px;
-
   }
-
 }

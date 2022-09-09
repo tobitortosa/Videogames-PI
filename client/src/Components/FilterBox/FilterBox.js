@@ -1,6 +1,6 @@
 import React from "react";
 import s from "./FilterBox.module.css";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import {
@@ -12,14 +12,13 @@ import {
   orderByName,
   orderbyOrigin,
   orderByRating,
-  clearGame
 } from "../../redux/actions";
 
 export default function FilterBox({ setCurrentPage }) {
   const dispatch = useDispatch();
   const allGenres = useSelector((state) => state.allGenres);
   const allPlatforms = useSelector((state) => state.allPlatforms);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(getAllGenres());
@@ -77,11 +76,11 @@ export default function FilterBox({ setCurrentPage }) {
     if (e.target.value === "lr") {
       dispatch(orderByRating("lr"));
     }
-  }
+  };
 
   const handleClick = () => {
-    setCurrentPage(1)
-    navigate(0)
+    setCurrentPage(1);
+    navigate(0);
   };
 
   return (
@@ -91,7 +90,9 @@ export default function FilterBox({ setCurrentPage }) {
       exit={{ opacity: 0 }}
       className={s.MAINContainer}
     >
-      <button onClick={handleClick} id={s.clearBtn}>Clear Filters</button>
+      <button onClick={handleClick} id={s.clearBtn}>
+        Clear Filters
+      </button>
 
       {/*  ORDER BY NAME  */}
 
@@ -126,7 +127,6 @@ export default function FilterBox({ setCurrentPage }) {
           <option value="lr">Low Rating</option>
         </select>
       </div>
-
 
       {/*  FILTER BY ORIGIN  */}
 

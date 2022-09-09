@@ -35,7 +35,7 @@
   width: 100%;
 }
 
-.buttonsContainer{
+.buttonsContainer {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -43,14 +43,13 @@
 
 .buttonsContainer button {
   color: rgb(255, 255, 255, 0.9);
-  margin: 3px 30px 0px 30px ;
+  margin: 3px 30px 0px 30px;
   font-size: 19px;
   background-color: transparent;
   transition: all 0.3s;
   cursor: pointer;
   border: none;
 }
-
 
 .buttonsContainer button:hover {
   transition: all 0.3s;
