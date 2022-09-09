@@ -1,13 +1,11 @@
-*{
-  margin: 0;   
+* {
+  margin: 0;
   padding: 0;
   overflow: hidden;
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
-
-
-.container{
+.container {
   border: 2px solid rgba(255, 255, 255, 0.75);
   position: absolute;
   top: 0;
@@ -17,5 +15,6 @@
   margin: 2vh;
   display: flex;
   flex-direction: row;
-  align-items:center;
+  align-items: center;
 }
+

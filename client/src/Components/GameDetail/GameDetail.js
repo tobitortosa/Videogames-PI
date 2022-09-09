@@ -11,11 +11,10 @@ export default function GameDetail() {
   const game = useSelector((state) => state.gameById[0]);
   const dispatch = useDispatch();
   const { id } = useParams();
-  const [description, setDescription] = useState("");
 
   useEffect(() => {
-    dispatch(getGamesById(id));
     dispatch(clearGame());
+    dispatch(getGamesById(id));
   }, []);
 
   const cleanText = game?.description.replace(/<\/?[^>]+(>|$)/g, "");

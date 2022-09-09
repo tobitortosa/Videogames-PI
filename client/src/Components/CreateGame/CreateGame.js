@@ -72,7 +72,7 @@ export default function CreateGame() {
 
   const [input, setInput] = useState({
     name: "",
-    release: "",
+    released: "",
     rating: 0,
     image: "",
     genres: [],
@@ -115,19 +115,21 @@ export default function CreateGame() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (
-      input.name === "" ||
-      input.description === "" ||
-      genres.length === 0 ||
-      platforms.length === 0
-    ) {
+    if (input.name.length < 3 || input.description.length < 10 || input.released === "") {
       return alert("You still have required inputs to complete");
+    } else if (input.genres.length === 0 || platforms.length === 0) {
+      return alert("You have to choose at least one Genre and one Platform");
+    } else if (input.genres.length === 0) {
+      return alert("You have to choose at least one Genre");
+    } else if (input.platforms.length === 0) {
+      return alert("You have to choose at least one Platform");
     } else {
       dispatch(createGame(input));
       setCreated(true);
+      console.log(input)
       setInput({
         name: "",
-        release: "",
+        released: "",
         rating: 0,
         image: "",
         genres: [],
@@ -169,15 +171,15 @@ export default function CreateGame() {
             {error.description && <p id={s.error}>{error.description}</p>}
             <label>Released :</label>
             <input
-              value={input.release}
+              value={input.released}
               type="date"
-              name="release"
+              name="released"
               onChange={handleInputChange}
               autoComplete="off"
               spellCheck="false"
               className={s.input}
             />
-            {error.release && <p id={s.error}>{error.release}</p>}
+            {error.released && <p id={s.error}>{error.released}</p>}
 
             <label>Rating :</label>
             <input

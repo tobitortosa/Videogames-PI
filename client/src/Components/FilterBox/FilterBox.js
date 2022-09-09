@@ -2,6 +2,7 @@ import React from "react";
 import s from "./FilterBox.module.css";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import {
   getAllGenres,
   filterByGenre,
@@ -10,13 +11,15 @@ import {
   filterByPlatform,
   orderByName,
   orderbyOrigin,
-  orderByRating
+  orderByRating,
+  clearGame
 } from "../../redux/actions";
 
-export default function FilterBox() {
+export default function FilterBox({ setCurrentPage }) {
   const dispatch = useDispatch();
   const allGenres = useSelector((state) => state.allGenres);
   const allPlatforms = useSelector((state) => state.allPlatforms);
+  const navigate = useNavigate()
 
   useEffect(() => {
     dispatch(getAllGenres());
@@ -77,7 +80,8 @@ export default function FilterBox() {
   }
 
   const handleClick = () => {
-    dispatch(clearFilter());
+    setCurrentPage(1)
+    navigate(0)
   };
 
   return (

@@ -28,7 +28,7 @@ module.exports = (sequelize) => {
       rating: {
         type: DataTypes.FLOAT,
       },
-      release: {
+      released: {
         type: DataTypes.DATEONLY,
         default: DataTypes.NOW,
       },

@@ -8,12 +8,12 @@
   display: flex;
   flex-direction: flex;
   justify-content: center;
-  margin-top: 50px;
+  align-items: center;
+  margin-top: 9.3vh;
+  overflow-y: auto;
 }
 
 .formContainer {
-  width: 70vw;
-  height: 70vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -23,28 +23,35 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-right: 7vw;
+}
+
+.formContainer label {
+  margin-top: 0.2vh;
 }
 
 .input {
   padding: 5px;
+  border-radius: 4px;
 }
 
 .createBtn {
   margin: 10px;
   padding: 15px;
   background-color: #ffffffe6;
-  transition: .3s;
+  transition: 0.3s;
+  border-radius: 5px;
 }
 
-.createBtn:hover{
+.createBtn:hover {
   cursor: pointer;
-  background-color: #ffffffbb;
-  transition: .3s;
+  background-color: rgba(254, 1, 94, 0.9);
+  transition: 0.3s;
+  color: #ffffffe6;
 }
 
 .platformsAndGenresContainer {
   display: flex;
+  height: auto;
 }
 
 .genresContainer {
@@ -80,7 +87,7 @@
 }
 
 #error {
-  color: rgba(255, 0, 0, 0.726);
+  color: rgba(255, 0, 0, 0.75);
 }
 
 .createContainer {
@@ -95,11 +102,39 @@
   text-decoration: none;
   margin-top: 15px;
   font-size: 21px;
-  transition: .3s;
+  transition: 0.3s;
 }
 
 .createContainer a:hover {
-  color: rgba(255, 0, 0, 0.726);
+  color: rgba(254, 1, 94, 0.9);
   text-decoration: underline;
-  transition: .3s;
+  transition: 0.3s;
+}
+
+.txt{
+  margin-left: 10px;
+}
+
+
+
+
+
+
+@media (max-width: 1300px) {
+  .formContainer {
+    width: auto;
+    height: auto;
+    margin-top: 12vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .formContainer form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }

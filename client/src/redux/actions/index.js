@@ -67,19 +67,6 @@ export const clearGame = () => {
   return { type: CLEAR_GAME };
 };
 
-// export const createGame = (payload) => (dispatch) => {
-//   return fetch("http://localhost:3001/games", {
-//     method: "POST",
-//     body: JSON.stringify(payload),
-//     headers: { "Content-type": "application/json; charset=UTF-8" },
-//   })
-//     .then((response) => response.json())
-//     .then((newGame) => dispatch({ type: CREATE_GAME, payload: newGame }))
-//     .catch((error) =>
-//       alert("Sorry, I cant create your new game", error.message)
-//     );
-// };
-
 export const createGame = (payload) => (dispatch) => {
   const newGame = axios.post("http://localhost:3001/games", payload);
   return dispatch({ type: CREATE_GAME, payload: newGame });

@@ -3,7 +3,7 @@ import GameCard from "../GameCard/GameCard";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { clearFilter, getAllGames } from "../../redux/actions";
+import { getAllGames } from "../../redux/actions";
 import s from "./GamesBox.module.css";
 import Pagination from "../Pagination/Pagination";
 import Loading from "../Loading/Loading";
@@ -53,7 +53,7 @@ export default function GamesBox() {
       className={s.gamesboxContainer}
     >
       {(allGames.length === 0 && !loading) || allGames.length ? (
-        <FilterBox />
+        <FilterBox setCurrentPage={setCurrentPage}/>
       ) : null}
 
       <div className={s.gamescontainer}>

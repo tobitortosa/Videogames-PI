@@ -21,10 +21,12 @@ body{
   display: flex;
   flex-direction: center;
   justify-content: center;
+
 }
 
 .allContainer{
     margin-top: 90px;
+    overflow-y:auto
 }
 
 .container {
@@ -98,4 +100,17 @@ body{
   border-radius: 20px;
 }
 
+@media (max-width: 1300px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .allContainer{
+    margin-top: 120px;
+    text-align: center;
+}
+}
 
