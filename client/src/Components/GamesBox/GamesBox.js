@@ -35,14 +35,8 @@ export default function GamesBox() {
     ? allGames.slice(indexOfFirstGame, indexOfLastGame)
     : [];
 
-  console.log(queryGames, "querygames");
-  console.log(allGames, "allgames");
-  console.log(currentGames, "currentGames");
-
   // Change Page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
-
-  console.log(loading, "loading");
 
   return (
     <div
@@ -52,7 +46,7 @@ export default function GamesBox() {
       className={s.gamesboxContainer}
     >
       {(allGames.length === 0 && !loading) || allGames.length ? (
-        <FilterBox setCurrentPage={setCurrentPage} />
+        <FilterBox />
       ) : null}
 
       <div className={s.gamescontainer}>

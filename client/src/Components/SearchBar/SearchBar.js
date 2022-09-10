@@ -29,8 +29,6 @@ export default function SearchBar() {
     } else {
       dispatch(clearFilter());
     }
-
-    console.log(input.searchGame);
   };
 
   return (

@@ -1,5 +1,5 @@
 .searchGame {
-  margin-left: 7.5vw;
+  margin-left: 13vw;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,8 +22,8 @@
 
 #searchBtn {
   position: relative;
-  right: 3.55vw;
-  font-size: 1.3vh;
+  right: 3.6vw;
+  font-size: 1.4vh;
   height: 35.5px;
   width: 3.5vw;
   border-bottom-right-radius: 40px;
@@ -41,16 +41,24 @@
 .searchGame button:hover {
   background-color: rgba(254, 1, 94, 0.774);
   cursor: pointer;
-  transition: 0.2s;
+  transition: 0.3s;
 }
 
 .searchGame input:focus {
   outline: none;
   background-color: rgba(113, 92, 195, 0.75);
-  border: solid 2px rgba(254, 1, 94, 0.9);
+  border: solid 1.5px rgba(254, 1, 94, 0.9);
+  transition: 0.3s;
 }
 
 @media (max-width: 1300px) {
+
+  .searchGame {
+    margin-left: 10vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   .searchGame input {
     height: 25px;
     width: 60vw;
@@ -58,15 +66,15 @@
     border: solid 1.5px #ffffffe6;
     border-radius: 40px;
     background-color: rgba(113, 92, 195, 0.541);
-    font-size: 18px;
+    font-size: 17px;
     transition: 0.3s;
     margin-top: 10px;
   }
 
   #searchBtn {
     position: relative;
-    right: 10vw;
-    font-size: 1.3vh;
+    right: 10.3vw;
+    font-size: 1.4vh;
     height: 25.5px;
     width: 10vw;
     border-bottom-right-radius: 40px;

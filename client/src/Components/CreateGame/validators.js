@@ -1,7 +1,6 @@
 // Corroborar si la fecha ingresada tiene formato valido
 export function isValidDate(str) {
-  const regexDate =
-    /^[1-2][089]\d{2}-(0?[1-9]|1[012])-(0?[1-9]|[12][0-9]|3[01])$/;
+  const regexDate = /^(((0[1-9]|[12]\d|3[01])\/(0[13578]|1[02])\/((19|[2-9]\d)\d{2}))|((0[1-9]|[12]\d|30)\/(0[13456789]|1[012])\/((19|[2-9]\d)\d{2}))|((0[1-9]|1\d|2[0-8])\/02\/((19|[2-9]\d)\d{2}))|(29\/02\/((1[6-9]|[2-9]\d)(0[48]|[2468][048]|[13579][26])|(([1][26]|[2468][048]|[3579][26])00))))$/g;
   return regexDate.test(str);
 }
 
@@ -38,11 +37,13 @@ export default function validate(input) {
     error.description = "Description may not be empty";
   }
 
-  if (isValidDate(input.released === false)) {
+  if (isValidDate(input.released)) {
     error.released = "Invalid year";
   } else if (!input.released) {
     error.released = "Invalid date";
   }
+
+  console.log(isValidDate(input.released))
 
   if (input.rating > 5) {
     error.rating = "Rating must be lower than 5";
@@ -58,13 +59,6 @@ export default function validate(input) {
     }
   }
 
-  if (input.genres.length < 1) {
-    error.genres = "You have to choose at least one Genre";
-  }
-
-  if (input.platforms.length < 1) {
-    error.platforms = "You have to choose ar least one Platform";
-  }
 
   return error;
 }

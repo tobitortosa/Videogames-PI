@@ -23,63 +23,92 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-right: 5vw;
 }
 
 .formContainer label {
-  margin-top: 0.2vh;
+  margin: 0.5vh 0vh 0.5vh 1vh;
+  font-size: 18px;
+}
+
+.formContainer label p {
+  font-size: 12px;
+  margin-left: 3px;
+}
+
+#optional {
+  display: flex;
+  align-items: center;
+}
+
+::placeholder {
+  color: rgb(88, 88, 88);
+  opacity: 1;
 }
 
 .input {
-  padding: 5px;
-  border-radius: 4px;
+  font-size: 15px;
+  padding: 11px;
+  border-radius: 5px;
+  outline: none;
+  color: rgb(88, 88, 88);
+  border: 2px solid transparent;
+  transition: 0.3s;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.input:focus {
+  outline: none;
+  border: 2px solid rgba(254, 1, 94, 0.9);
+  transition: 0.3s;
+}
+
+.input:hover {
+  background-color: #ffffffe6;
+  transition: 0.3s;
 }
 
 .createBtn {
   margin: 10px;
   padding: 15px;
-  background-color: #ffffffe6;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: none;
   transition: 0.3s;
   border-radius: 5px;
+  font-size: 17px;
 }
 
 .createBtn:hover {
   cursor: pointer;
-  background-color: rgba(254, 1, 94, 0.9);
+  background-color: rgba(254, 1, 94, 0.8);
   transition: 0.3s;
   color: #ffffffe6;
 }
 
 .platformsAndGenresContainer {
-  display: flex;
   height: auto;
+  display: flex;
 }
 
-.genresContainer {
-  margin: 20px;
-  padding: 10px;
+.genresPlatformsContainer {
+  padding: 20px;
 }
 
-.genresContainer h3 {
-  text-align: center;
+.genresPlatformsContainer h3 {
   margin-bottom: 10px;
-}
-
-.platformsContainer {
-  padding: 10px;
-  margin: 20px;
-}
-.platformsContainer h3 {
-  text-align: center;
-  margin-bottom: 10px;
+  font-size: 21px;
 }
 
 .btnContainer {
   display: flex;
 }
 
-.btnContainer button {
-  padding: 6px;
-  margin: 0px 7px 5px 0px;
+.btnContainer p {
+  font-size: 19px;
+}
+
+.btnContainer input{
+  cursor: pointer;
 }
 
 .loading {
@@ -88,6 +117,8 @@
 
 #error {
   color: rgba(255, 0, 0, 0.75);
+  margin-top: 3px;
+  margin-left: 7px;
 }
 
 .createContainer {
@@ -116,10 +147,40 @@
 }
 
 @media (max-width: 1300px) {
+  .input {
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+  }
+
+  .formContainer label {
+    margin-top: 0.2vh;
+  }
+
   .formContainer {
     width: auto;
     height: auto;
-    margin-top: 12vh;
+    margin-top: 2vh;
+    margin-left: 5vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .formContainer form {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+
+@media (max-height: 900px) {
+  .formContainer {
+    width: auto;
+    height: auto;
+    margin-top: 20vh;
+    margin-left: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -130,6 +191,10 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    margin-right: 0;
+  }
+
+  .loading {
+    margin-left: 8.5vw;
   }
 }

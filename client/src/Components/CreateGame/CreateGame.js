@@ -90,8 +90,6 @@ export default function CreateGame() {
     }
   };
 
-  console.log(platforms, "platforms");
-
   useEffect(() => {
     dispatch(getAllGenres());
     dispatch(getAllPlatforms());
@@ -113,18 +111,14 @@ export default function CreateGame() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (
-      input.name.length < 3 ||
-      input.description.length < 10 ||
-      input.released === ""
-    ) {
-      return alert("You still have required inputs to complete");
-    } else if (input.genres.length === 0 || platforms.length === 0) {
+    if (input.genres.length === 0 && input.platforms.length === 0) {
       return alert("You have to choose at least one Genre and one Platform");
     } else if (input.genres.length === 0) {
       return alert("You have to choose at least one Genre");
     } else if (input.platforms.length === 0) {
       return alert("You have to choose at least one Platform");
+    } else if (Object.keys(error).length || !input.name) {
+      return alert("You still have required inputs to complete");
     } else {
       dispatch(createGame(input));
       setCreated(true);
@@ -147,7 +141,7 @@ export default function CreateGame() {
       <div className={s.container}>
         <div className={s.formContainer}>
           <form>
-            <label>Name :</label>
+            <label>★ Name :</label>
             <input
               value={input.name}
               type="text"
@@ -155,11 +149,11 @@ export default function CreateGame() {
               onChange={handleInputChange}
               autoComplete="off"
               spellCheck="false"
-              placeholder=" name..."
+              placeholder=" Name..."
               className={s.input}
             />
             {error.name && <p id={s.error}>{error.name}</p>}
-            <label>Description :</label>
+            <label>★ Description :</label>
             <textarea
               value={input.description}
               type="text"
@@ -171,7 +165,9 @@ export default function CreateGame() {
               className={s.input}
             />
             {error.description && <p id={s.error}>{error.description}</p>}
-            <label>Released :</label>
+            <label><div id={s.optional}>
+              ★ Released <p>(optional)</p>
+              </div></label>
             <input
               value={input.released}
               type="date"
@@ -183,7 +179,9 @@ export default function CreateGame() {
             />
             {error.released && <p id={s.error}>{error.released}</p>}
 
-            <label>Rating :</label>
+            <label><div id={s.optional}>
+              ★ Rating <p>(optional)</p>
+              </div></label>
             <input
               value={input.rating}
               type="number"
@@ -198,10 +196,14 @@ export default function CreateGame() {
               className={s.input}
             />
             {error.rating && <p id={s.error}>{error.rating}</p>}
-            <label>Image </label>
+            <label>
+              <div id={s.optional}>
+              ★ Image <p>(optional)</p>
+              </div>
+            </label>
             <textarea
               name="image"
-              placeholder=" Image URL"
+              placeholder=" Image URL..."
               value={input.image}
               type="text"
               cols="60"
@@ -223,18 +225,19 @@ export default function CreateGame() {
           </form>
 
           <div className={s.platformsAndGenresContainer}>
-            <div className={s.genresContainer}>
+            <div className={s.genresPlatformsContainer}>
               <h3>Choose Genres : </h3>
               <div className={s.genres}>
                 {genres.length ? (
-                  genres.map((g) => {
+                  genres.map((g, index) => {
                     return (
-                      <div className={s.btnContainer}>
+                      <div key={index} className={s.btnContainer}>
                         <input
                           type="checkbox"
                           name="genres"
                           value={g.name}
                           onChange={handleButtonClick}
+                          className={s.checkbox}
                         />
                         <p className={s.txt}>{g.name}</p>
                       </div>
@@ -247,18 +250,19 @@ export default function CreateGame() {
                 )}
               </div>
             </div>
-            <div className={s.platformsContainer}>
-              <h3>Choose Platforms: </h3>
+            <div className={s.genresPlatformsContainer}>
+              <h3>Choose Platforms :</h3>
               <div className={s.genres}>
                 {platforms.length ? (
-                  platforms.map((p) => {
+                  platforms.map((p, index) => {
                     return (
-                      <div className={s.btnContainer}>
+                      <div key={index} className={s.btnContainer}>
                         <input
                           type="checkbox"
                           name="platforms"
                           value={p.name}
-                          onClick={handleButtonClick}
+                          onChange={handleButtonClick}
+                          className={s.checkbox}
                         />
                         <p className={s.txt}>{p.name}</p>
                       </div>

@@ -15,7 +15,7 @@ export default function Error() {
       <h1 className={s.title}>Sorry Game not Found</h1>
       <div className={s.txtContainer}>
         <p>
-          You can{" "}
+          You can {" "}
           <button id={s.clearBtn} onClick={handleClearFilter}>
             Clear Filters
           </button>

@@ -14,7 +14,7 @@ import {
   orderByRating,
 } from "../../redux/actions";
 
-export default function FilterBox({ setCurrentPage }) {
+export default function FilterBox() {
   const dispatch = useDispatch();
   const allGenres = useSelector((state) => state.allGenres);
   const allPlatforms = useSelector((state) => state.allPlatforms);
@@ -79,7 +79,6 @@ export default function FilterBox({ setCurrentPage }) {
   };
 
   const handleClick = () => {
-    setCurrentPage(1);
     navigate(0);
   };
 

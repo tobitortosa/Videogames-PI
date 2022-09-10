@@ -1,7 +1,6 @@
 import React from "react";
 import NavBar from "../NavBar/Navbar";
 import GamesBox from "../GamesBox/GamesBox";
-import s from "./Menu.module.css";
 
 export default function Menu() {
   return (
@@ -12,7 +11,7 @@ export default function Menu() {
       className="maincontainer"
     >
       <NavBar searchBar={true} create={true} />
-      <div className={s.boxcontainer}>
+      <div className="boxcontainer">
         <GamesBox />
       </div>
     </div>

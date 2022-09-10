@@ -40,18 +40,23 @@
   border: none;
   font-size: 21px;
   color: rgba(254, 1, 94, 0.6);
+  transition: 0.2s;
 }
 #clearBtn:hover {
   color: rgba(254, 1, 94, 0.856);
   text-decoration: underline;
+  cursor: pointer;
+  transition: 0.2s;
 }
 
 #createBtn {
   text-decoration: none;
   color: rgba(254, 1, 94, 0.6);
+  transition: 0.2s;
 }
 
 #createBtn:hover {
   color: rgba(254, 1, 94, 0.856);
   text-decoration: underline;
+  transition: 0.2s;
 }
