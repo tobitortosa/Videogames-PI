@@ -3,7 +3,7 @@ import GameCard from "../GameCard/GameCard";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllGames } from "../../redux/actions";
+import { clearFilter, getAllGames } from "../../redux/actions";
 import s from "./GamesBox.module.css";
 import Pagination from "../Pagination/Pagination";
 import Loading from "../Loading/Loading";
@@ -22,6 +22,7 @@ export default function GamesBox() {
 
   useEffect(() => {
     let getGames = async () => {
+      await dispatch(clearFilter())
       await dispatch(getAllGames());
       setLoading(false);
     };
