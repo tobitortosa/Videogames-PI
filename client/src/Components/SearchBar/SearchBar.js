@@ -7,7 +7,7 @@ import s from "./SearchBar.module.css";
 export default function SearchBar() {
   const dispatch = useDispatch();
   const allGames = useSelector((state) => state.allGames);
-
+  const allPlatforms = useSelector((state) => state.allPlatforms);
   const [input, setInput] = useState({
     searchGame: "",
   });
@@ -20,7 +20,7 @@ export default function SearchBar() {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (input.searchGame !== "") {
+    if (input.searchGame !== "" && allPlatforms.length) {
       dispatch(getQueryGames(input.searchGame));
       setInput({
         ...input,
@@ -34,14 +34,14 @@ export default function SearchBar() {
   return (
     <form className={s.searchGame} onSubmit={handleSubmit}>
       <input
-        value={allGames.length === 0 ? "" : input.searchGame}
+        value={!allGames.length || !allPlatforms.length ? "" : input.searchGame}
         type="text"
         name="searchGame"
         onChange={handleInputChange}
         autoComplete="off"
         spellCheck="false"
         placeholder={
-          allGames.length === 0 ? "Loading..." : "Search for a videogame..."
+          !allPlatforms.length ? "Loading..." : "Search for a videogame..."
         }
       />
       <button id={s.searchBtn} onClick={handleSubmit}>

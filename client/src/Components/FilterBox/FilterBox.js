@@ -29,6 +29,7 @@ export default function FilterBox() {
     if (e.target.value === "All") {
       dispatch(clearFilter());
     } else {
+      dispatch(clearFilter());
       dispatch(filterByGenre(e.target.value));
     }
   };
@@ -37,6 +38,7 @@ export default function FilterBox() {
     if (e.target.value === "All") {
       dispatch(clearFilter());
     } else {
+      dispatch(clearFilter());
       dispatch(filterByPlatform(e.target.value));
     }
   };
@@ -45,7 +47,6 @@ export default function FilterBox() {
     if (e.target.value === "All") {
       dispatch(clearFilter());
     }
-
     if (e.target.value === "asc") {
       dispatch(orderByName("asc"));
     }
@@ -59,9 +60,11 @@ export default function FilterBox() {
       dispatch(clearFilter());
     }
     if (e.target.value === "api") {
+      dispatch(clearFilter());
       dispatch(orderbyOrigin("api"));
     }
     if (e.target.value === "db") {
+      dispatch(clearFilter());
       dispatch(orderbyOrigin("db"));
     }
   };

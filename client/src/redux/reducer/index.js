@@ -21,16 +21,25 @@ export const initialState = {
   allGenres: [],
   allPlatforms: [],
   gameById: [],
+  createdGameId: "",
+  sameName: false
 };
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_ALL_GAMES:
-      return {
-        ...state,
-        allGames: action.payload.data,
-        filterGames: action.payload.data,
-      };
+      if (state.allGames.length === 0) {
+        return {
+          ...state,
+          allGames: action.payload.data,
+          filterGames: action.payload.data,
+        };
+      } else {
+        return {
+          ...state,
+        };
+      }
+
     case GET_QUERY_GAMES:
       return {
         ...state,
@@ -81,6 +90,7 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         gameById: [],
+        createdGameId: "",
       };
     case GET_ALL_PLATFORMS:
       return {
@@ -88,23 +98,29 @@ const rootReducer = (state = initialState, action) => {
         allPlatforms: action.payload.data,
       };
     case CREATE_GAME:
+      if(action.payload === "Error") {
+        return {
+          ...state,
+          sameName: true
+        }
+      }
       return {
         ...state,
+        createdGameId: action.payload,
       };
-
     case ORDER_BY_ORIGIN:
       let orderOrigin;
 
       orderOrigin = state.allGames.filter((game) => {
         if (action.payload === "api") {
-          // si es de la API (3456)
+          // si es de la API (numero)
           if (!isNaN(Number(game.id))) {
             return true;
           } else {
             return false;
           }
         } else {
-          // si es de la DB (ertty-567jj)
+          // si es de la DB (UUIDV4)
           if (isNaN(Number(game.id))) {
             return true;
           } else {

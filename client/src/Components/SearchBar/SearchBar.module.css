@@ -60,13 +60,13 @@
     align-items: center;
   }
   .searchGame input {
-    height: 25px;
+    height: 3vh;
     width: 60vw;
     padding-left: 20px;
     border: solid 1.5px #ffffffe6;
     border-radius: 40px;
     background-color: rgba(113, 92, 195, 0.541);
-    font-size: 17px;
+    font-size: 2vh;
     transition: 0.3s;
     margin-top: 10px;
   }
@@ -75,7 +75,7 @@
     position: relative;
     right: 10.3vw;
     font-size: 1.4vh;
-    height: 25.5px;
+    height: 3vh;
     width: 10vw;
     border-bottom-right-radius: 40px;
     border-top-right-radius: 40px;

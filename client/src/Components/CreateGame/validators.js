@@ -1,14 +1,24 @@
-// Corroborar si la fecha ingresada tiene formato valido
+// Corroborar si el año de la fecha ingresada tiene formato valido.
 export function isValidDate(str) {
-  const regexDate = /^(((0[1-9]|[12]\d|3[01])\/(0[13578]|1[02])\/((19|[2-9]\d)\d{2}))|((0[1-9]|[12]\d|30)\/(0[13456789]|1[012])\/((19|[2-9]\d)\d{2}))|((0[1-9]|1\d|2[0-8])\/02\/((19|[2-9]\d)\d{2}))|(29\/02\/((1[6-9]|[2-9]\d)(0[48]|[2468][048]|[13579][26])|(([1][26]|[2468][048]|[3579][26])00))))$/g;
-  return regexDate.test(str);
+  // 00-00-0000
+  let year = str.slice(0, 4);
+  if (Number(year) < 1950 || Number(year) > 2022 || str.length > 10) {
+    console.log(Number(year));
+    return true;
+  } else {
+    return false;
+  }
 }
 
+
+// Corrobora si hay caracteres especiales entro del str.
 export function hasSpecialChars(str) {
   const regexSpecialChars = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
   return regexSpecialChars.test(str);
 }
 
+
+// Corrobora que la URL sea una URL valida.
 export function isURL(str) {
   const regexURL = /^https?:\/\/.*\/.*\.(png|gif|webp|jpeg|jpg)\??.*$/gim;
   return regexURL.test(str);
@@ -43,8 +53,6 @@ export default function validate(input) {
     error.released = "Invalid date";
   }
 
-  console.log(isValidDate(input.released))
-
   if (input.rating > 5) {
     error.rating = "Rating must be lower than 5";
   } else if (input.rating < 0) {
@@ -58,7 +66,6 @@ export default function validate(input) {
       error.image = "Invalid URL";
     }
   }
-
 
   return error;
 }

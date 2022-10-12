@@ -20,7 +20,7 @@ export default function GameDetail() {
   const cleanText = game?.description.replace(/<\/?[^>]+(>|$)/g, "");
   return (
     <div className={s.mainContainer}>
-      {game ? <NavBar menu={true} /> : null}
+      {game ? <NavBar menu={true} create={true}/> : null}
       {game ? (
         <div className={s.allContainer}>
           <div className={s.container}>
@@ -32,19 +32,19 @@ export default function GameDetail() {
                   <h2>Genres :</h2>
                   <div>
                     {game.genres.map((g) => {
-                      return <p key={g.id}>★ {g.name}</p>;
+                      return <p key={g.id}>● {g.name}</p>;
                     })}
                   </div>
                   <h2>Platforms :</h2>
                   <div>
                     {game.platforms.map((p) => {
-                      return <p key={p.id}>★ {p.name}</p>;
+                      return <p key={p.id}>● {p.name}</p>;
                     })}
                   </div>
                 </div>
                 <div className={s.txtRight}>
                   <h2>Rating :</h2>
-                  <div className={s.ratingAndReleased}>{game.rating}</div>
+                  <div className={s.ratingAndReleased}>★ {game.rating}</div>
                   <h2>Released :</h2>
                   <div className={s.ratingAndReleased}>{game.released}</div>
                 </div>

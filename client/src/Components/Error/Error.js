@@ -1,13 +1,11 @@
 import React from "react";
 import s from "./Error.module.css";
-import { useDispatch } from "react-redux";
-import { clearFilter } from "../../redux/actions";
+import { useNavigate } from "react-router-dom";
 
 export default function Error() {
-  const dispatch = useDispatch();
-
+  const navigate = useNavigate();
   const handleClearFilter = () => {
-    dispatch(clearFilter());
+    navigate(0);
   };
 
   return (
@@ -15,7 +13,7 @@ export default function Error() {
       <h1 className={s.title}>Sorry Game not Found</h1>
       <div className={s.txtContainer}>
         <p>
-          You can {" "}
+          You can{" "}
           <button id={s.clearBtn} onClick={handleClearFilter}>
             Clear Filters
           </button>

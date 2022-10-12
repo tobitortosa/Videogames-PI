@@ -12,6 +12,7 @@ import {
   GET_GAME_BY_ID,
   CLEAR_GAME,
   CREATE_GAME,
+  CLEAR_GAMES,
 } from "./actionsTypes";
 import axios from "axios";
 
@@ -67,7 +68,11 @@ export const clearGame = () => {
   return { type: CLEAR_GAME };
 };
 
-export const createGame = (payload) => (dispatch) => {
-  const newGame = axios.post("http://localhost:3001/games", payload);
-  return dispatch({ type: CREATE_GAME, payload: newGame });
+export const clearGames = () => {
+  return { type: CLEAR_GAMES }
+}
+
+export const createGame = (payload) => async (dispatch) => {
+  const newGame = await axios.post("http://localhost:3001/games", payload);
+  return dispatch({ type: CREATE_GAME, payload: newGame.data.id ? newGame.data.id : "Error" });
 };

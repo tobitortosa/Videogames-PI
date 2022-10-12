@@ -11,3 +11,4 @@ export const ORDER_BY_RATING = "ORDER_BY_RATING";
 export const GET_GAME_BY_ID = "GET_GAME_BY_ID";
 export const CLEAR_GAME = "CLEAR_GAME";
 export const CREATE_GAME = "CREATE_GAME";
+export const CLEAR_GAMES = "CLEAR_GAMES"

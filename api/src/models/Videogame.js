@@ -29,6 +29,7 @@ module.exports = (sequelize) => {
         type: DataTypes.FLOAT,
       },
       released: {
+        allowNull: true,
         type: DataTypes.DATEONLY,
         default: DataTypes.NOW,
       },

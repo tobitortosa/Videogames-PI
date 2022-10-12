@@ -110,4 +110,14 @@ body {
     margin-top: 120px;
     text-align: center;
   }
+
+  .txtContainer {
+    min-height: 40vh;
+    width: 35vw;
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }

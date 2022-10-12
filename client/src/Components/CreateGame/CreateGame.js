@@ -2,29 +2,21 @@ import React from "react";
 import NavBar from "../NavBar/Navbar";
 import s from "./CreateGame.module.css";
 import { useEffect, useState } from "react";
-import { getAllPlatforms, getAllGenres } from "../../redux/actions";
+import { getAllPlatforms, getAllGenres, clearGame } from "../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import Loading from "../Loading/Loading";
 import { createGame } from "../../redux/actions";
 import validate from "./validators";
-// Ruta de creación de videojuegos: debe contener:
-
-// [ ] Un formulario controlado con JavaScript con los siguientes campos:
-// Nombre
-// Descripción
-// Fecha de lanzamiento
-// Rating
-// [ ] Posibilidad de seleccionar/agregar varios géneros
-// [ ] Posibilidad de seleccionar/agregar varias plataformas
-// [ ] Botón/Opción para crear un nuevo videojuego
-// Es requisito que el formulario de creación esté validado con JavaScript y no sólo con validaciones HTML. Pueden agregar las validaciones que consideren. Por ejemplo: Que el nombre del juego no pueda contener algunos símbolos, que el rating no pueda exceder determinado valor, etc.
+import { useNavigate } from "react-router-dom";
 
 export default function CreateGame() {
   const dispatch = useDispatch();
   const platforms = useSelector((state) => state.allPlatforms);
   const genres = useSelector((state) => state.allGenres);
+  const createdGameId = useSelector((state) => state.createdGameId);
+  const allGames = useSelector((state) => state.allGames);
   const [error, setError] = useState({});
-  const [created, setCreated] = useState(false);
+  const navigate = useNavigate();
   const [checkboxStates] = useState({
     genres: {
       Action: false,
@@ -78,6 +70,16 @@ export default function CreateGame() {
     description: "",
   });
 
+  const validateName = (name) => {
+    let sameName = allGames.filter((g) => g.name === name);
+    if (sameName) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  // Guarda en el input los generos y plataformas
   const handleButtonClick = (e) => {
     checkboxStates[e.target.name][e.target.value] =
       !checkboxStates[e.target.name][e.target.value];
@@ -119,25 +121,24 @@ export default function CreateGame() {
       return alert("You have to choose at least one Platform");
     } else if (Object.keys(error).length || !input.name) {
       return alert("You still have required inputs to complete");
+    } else if (validateName(input.name)) {
+      error.name = "Name alredy exist";
     } else {
-      dispatch(createGame(input));
-      setCreated(true);
-      console.log(input);
-      setInput({
-        name: "",
-        released: "",
-        rating: 0,
-        image: "",
-        genres: [],
-        platforms: [],
-        description: "",
-      });
+      dispatch(createGame());
     }
   };
 
+
+  useEffect(() => {
+    if (createdGameId) {
+      navigate(`/game/${createdGameId}`);
+      dispatch(clearGame);
+    }
+  }, [createdGameId, navigate, dispatch]);
+
   return (
     <div>
-      <NavBar menu={true} />
+      <NavBar menu={true} underlineCreateGame={true} />
       <div className={s.container}>
         <div className={s.formContainer}>
           <form>
@@ -165,9 +166,9 @@ export default function CreateGame() {
               className={s.input}
             />
             {error.description && <p id={s.error}>{error.description}</p>}
-            <label><div id={s.optional}>
-              ★ Released <p>(optional)</p>
-              </div></label>
+            <label>
+              <div id={s.optional}>★ Released :</div>
+            </label>
             <input
               value={input.released}
               type="date"
@@ -179,9 +180,11 @@ export default function CreateGame() {
             />
             {error.released && <p id={s.error}>{error.released}</p>}
 
-            <label><div id={s.optional}>
-              ★ Rating <p>(optional)</p>
-              </div></label>
+            <label>
+              <div id={s.optional}>
+                ★ Rating <p>(optional)</p>
+              </div>
+            </label>
             <input
               value={input.rating}
               type="number"
@@ -198,7 +201,7 @@ export default function CreateGame() {
             {error.rating && <p id={s.error}>{error.rating}</p>}
             <label>
               <div id={s.optional}>
-              ★ Image <p>(optional)</p>
+                ★ Image <p>(optional)</p>
               </div>
             </label>
             <textarea
@@ -214,14 +217,6 @@ export default function CreateGame() {
             <button onClick={handleSubmit} className={s.createBtn}>
               Create Game!
             </button>
-            <div className={s.createContainer}>
-              {created && <h2 id={s.created}>Game Created !</h2>}
-              {created && (
-                <a href="/menu" id={s.menuBtn}>
-                  Go to Menu
-                </a>
-              )}
-            </div>
           </form>
 
           <div className={s.platformsAndGenresContainer}>

@@ -49,6 +49,56 @@ module.exports = {
     const allGames = [...apiGames, ...dbGames];
     return allGames;
   },
+  validateGameName: async (name) => {
+    const apiGames = [];
+
+    let url = `https://api.rawg.io/api/games?key=${API_KEY}`;
+
+    for (let i = 0; i < 5; i++) {
+      let games = await axios.get(url);
+      games.data?.results.forEach((g) => {
+        apiGames.push({
+          id: g.id,
+          name: g.name,
+          image: g.background_image,
+          rating: g.rating,
+          genres: g.genres.map(({ id, name }) => {
+            return { id, name };
+          }),
+          platforms: g.platforms
+            .map((p) => p.platform)
+            .map(({ id, name }) => {
+              return { id, name };
+            }),
+        });
+      });
+
+      url = games.data.next;
+    }
+
+    const dbGames = await Videogame.findAll({
+      include: [
+        {
+          model: Genre,
+          attributes: ["id", "name"],
+          through: { attributes: [] },
+        },
+        {
+          model: Platform,
+          attributes: ["id", "name"],
+          through: { attributes: [] },
+        },
+      ],
+    });
+
+    const allGames = [...apiGames, ...dbGames];
+    let gameExist = allGames.filter(g => g.name === name)
+    if(gameExist.length) {
+      return true
+    } else {
+      return false
+    } 
+  },
 
   getAllGamesWithQuery: async (name) => {
     const apiGamesWithQuery = [];

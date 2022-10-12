@@ -22,7 +22,7 @@ export default function GamesBox() {
 
   useEffect(() => {
     let getGames = async () => {
-      await dispatch(clearFilter())
+      await dispatch(clearFilter());
       await dispatch(getAllGames());
       setLoading(false);
     };
@@ -35,7 +35,6 @@ export default function GamesBox() {
   const currentGames = allGames
     ? allGames.slice(indexOfFirstGame, indexOfLastGame)
     : [];
-
   // Change Page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 

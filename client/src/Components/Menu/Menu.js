@@ -10,7 +10,7 @@ export default function Menu() {
       exit={{ opacity: 0 }}
       className="maincontainer"
     >
-      <NavBar searchBar={true} create={true} />
+      <NavBar searchBar={true} create={true} underlineMenu={true}/>
       <div className="boxcontainer">
         <GamesBox />
       </div>
