@@ -121,13 +121,11 @@ export default function CreateGame() {
       return alert("You have to choose at least one Platform");
     } else if (Object.keys(error).length || !input.name) {
       return alert("You still have required inputs to complete");
-    } else if (validateName(input.name)) {
-      error.name = "Name alredy exist";
     } else {
-      dispatch(createGame());
+      console.log(input)
+      dispatch(createGame(input));
     }
   };
-
 
   useEffect(() => {
     if (createdGameId) {

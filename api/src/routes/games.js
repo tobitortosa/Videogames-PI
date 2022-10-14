@@ -5,7 +5,6 @@ const {
   getAllGames,
   getAllGamesWithQuery,
   getGameById,
-  validateGameName
 } = require("../controllers/index");
 
 router.get("/", async (req, res, next) => {
@@ -50,9 +49,6 @@ router.post("/games", async (req, res) => {
     req.body;
   if (!name || !description || !platforms || !genres)
     res.status(400).send("Sorry, I need more videogame data");
-  if(validateGameName(name)) {
-    res.status(400).send("Game already created with this name")
-  }
   try {
     let newVideogame = await Videogame.create({ ...req.body });
 
@@ -65,15 +61,15 @@ router.post("/games", async (req, res) => {
 
     res.status(200).json(newVideogame);
   } catch (error) {
-    res.status(400).send(error.message);
+    res.status(400).send(error);
   }
 });
 
 router.delete("/games", (req, res) => {
-  const { id } = req.body
-  if(!id) {
-    res.status(400).send("Error no se paso ningun id")
+  const { id } = req.body;
+  if (!id) {
+    res.status(400).send("Error no se paso ningun id");
   }
-})
+});
 
 module.exports = router;
