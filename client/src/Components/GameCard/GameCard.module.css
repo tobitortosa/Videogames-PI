@@ -23,7 +23,7 @@
 }
 .cardcontainer img {
   width: 230px;
-  max-height: 13vh;
+  max-height: 14vh;
   min-height: 10vh;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
@@ -43,4 +43,13 @@
 
 .gameDetails li {
   font-size: 13px;
+}
+
+@media (max-width: 1300px) {
+  .cardcontainer img {
+    max-height: 20vh;
+    min-height: 10vh;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+  }
 }

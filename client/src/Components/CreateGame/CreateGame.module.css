@@ -178,7 +178,7 @@
 @media (max-height: 915px) {
   .formContainer {
     width: auto;
-    max-height: 100vh;
+    max-height: 95vh;
     margin-top: 130px;
     margin-left: 0;
     display: flex;

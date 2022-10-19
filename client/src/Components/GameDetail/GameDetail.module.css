@@ -6,8 +6,13 @@ body {
 
 .loader {
   position: absolute;
-  left: 46.5vw;
-  top: 40vh;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .mainContainer {
@@ -37,22 +42,37 @@ body {
   margin-left: 10px;
 }
 
-.txtContainer {
-  min-height: 40vh;
-  width: 35vw;
-  margin-left: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
 .starsContainer {
   display: flex;
+  margin-left: 20px;
 }
 
 .txtLeft {
   min-width: 15vw;
 }
+
+.txtLeft h2 {
+
+  font-size: 2vh;
+  margin: 10px;
+}
+
+.txtLeft p {
+
+  font-size: 2vh;
+}
+
+.txtRight h2 {
+
+  font-size: 2vh;
+  margin: 10px;
+}
+
+.txtRight p {
+
+  font-size: 2vh;
+}
+
 .txtRight {
   min-width: 15vw;
 }
@@ -75,12 +95,12 @@ body {
 
 #descriptionTitle {
   margin: 2vh 14vw 0vh 14vw;
-  font-size: 22px;
+  font-size: 3vh;
 }
 
 #description {
-  margin: 1vh 14vw 0vh 14vw;
-  font-size: 17px;
+  margin: 1vh 14vw 3vh 14vw;
+  font-size: 1.8vh;
 }
 
 .txtContainer h2 {
@@ -88,6 +108,16 @@ body {
   font-size: 20px;
   margin-bottom: 10px;
   margin-top: 10px;
+}
+
+.items {
+  text-align: start;
+}
+
+#title {
+  font-size: 3.5vh;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 #img {
@@ -98,7 +128,26 @@ body {
   border-radius: 20px;
 }
 
-@media (max-width: 1300px) {
+@media (max-width: 1200px) {
+  
+  .container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  .starsContainer {
+    display: flex;
+    margin-left: 0px;
+  }
+
+  #img {
+    max-width: 80vw;
+    min-width: 80vw;
+    max-height: 50vw;
+    min-height: 50vw;
+    border-radius: 20px;
+  }
   .container {
     display: flex;
     flex-direction: column;

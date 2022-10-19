@@ -21,14 +21,6 @@ export default function NavBar(props) {
               Menu
             </button>
           </Link>
-          <Link to="/about">
-            <button
-              id={s.babout}
-              className={props.underlineAbout ? s.underlineAbout : s.underline}
-            >
-              About
-            </button>
-          </Link>
           <Link to="/create">
             <button
               id={s.bcreate}

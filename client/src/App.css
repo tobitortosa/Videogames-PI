@@ -17,3 +17,18 @@
   flex-direction: row;
   align-items: center;
 }
+
+body{
+  background-image: url("./images/bg.jpg");
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  background-size: 100% auto;
+}
+
+
+@media (max-width: 1300px) {
+  body{
+    background-image: url("./images/800271.jpg");
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-size: 100% auto;
+  }
+}

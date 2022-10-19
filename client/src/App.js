@@ -4,7 +4,6 @@ import Menu from "./Components/Menu/Menu";
 import GameDetail from "./Components/GameDetail/GameDetail";
 import CreateGame from "./Components/CreateGame/CreateGame";
 import "./App.css";
-import About from "./Components/About/About";
 
 function App() {
   return (
@@ -14,7 +13,6 @@ function App() {
         <Route path="/menu" element={<Menu />} />
         <Route path="/game/:id" element={<GameDetail />} />
         <Route path="/create" element={<CreateGame />} />
-        <Route path="/about" element={<About />} />
       </Routes>
     </div>
   );

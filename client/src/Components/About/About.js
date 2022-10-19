@@ -8,6 +8,14 @@ export default function About() {
       <NavBar create={true} menu={true} underlineAbout={true} />
       <div className={s.aboutContainer}>
         <h1>About Me</h1>
+        <div className={s.container}>
+          <div className={s.img}>
+            <h1>Imagen</h1>
+          </div>
+          <div className={s.text}>
+            <p>Hola mi nombre es Tobías Tortosa</p>
+          </div>
+        </div>
       </div>
     </div>
   );

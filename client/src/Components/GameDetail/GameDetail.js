@@ -23,20 +23,20 @@ export default function GameDetail() {
       {game ? <NavBar menu={true} create={true}/> : null}
       {game ? (
         <div className={s.allContainer}>
+              <h1 id={s.title}>{game.name}</h1>
           <div className={s.container}>
             <img id={s.img} src={game.image} alt={game.name} />
-            <div className={s.txtContainer}>
-              <h1 id={s.title}>{game.name}</h1>
+            <div>
               <div className={s.starsContainer}>
                 <div className={s.txtLeft}>
                   <h2>Genres :</h2>
-                  <div>
+                  <div className={s.items} >
                     {game.genres.map((g) => {
                       return <p key={g.id}>● {g.name}</p>;
                     })}
                   </div>
                   <h2>Platforms :</h2>
-                  <div>
+                  <div className={s.items} > 
                     {game.platforms.map((p) => {
                       return <p key={p.id}>● {p.name}</p>;
                     })}
@@ -44,9 +44,9 @@ export default function GameDetail() {
                 </div>
                 <div className={s.txtRight}>
                   <h2>Rating :</h2>
-                  <div className={s.ratingAndReleased}>★ {game.rating}</div>
+                  <p className={s.ratingAndReleased}>★ {game.rating}</p>
                   <h2>Released :</h2>
-                  <div className={s.ratingAndReleased}>{game.released}</div>
+                  <p className={s.ratingAndReleased}>{game.released}</p>
                 </div>
               </div>
             </div>
