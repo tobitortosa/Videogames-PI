@@ -14,7 +14,7 @@ router.get("/platforms", async (req, res) => {
   try {
     return res.status(200).json(await getAllPlatforms());
   } catch (error) {
-    res.status(400).send(error.message);
+    res.status(400).send(error);
   }
 });
 
