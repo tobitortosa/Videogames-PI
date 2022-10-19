@@ -150,7 +150,7 @@ module.exports = {
   getAllGenres: async () => {
     let genres = await Genre.findAll();
     if (!genres.length) {
-      console.log("no existe genres en la db")
+      console.log("no existe genres en la db");
       const genresApi = await axios.get(
         `http://api.rawg.io/api/genres?key=${API_KEY}`
       );
@@ -166,39 +166,55 @@ module.exports = {
   },
 
   getAllPlatforms: async () => {
-    let platformsDb = Platform.findAll();
+    let platforms = await Platform.findAll();
+    if (!platforms.length) {
+      console.log("no existe platforms en la db");
+      const platformsApi = await axios.get(
+        `http://api.rawg.io/api/platforms?key=${API_KEY}`
+      );
 
-    if (!platformsDb.length) {
-      console.log("no existe platforms en la db")
-      let apiPlatforms = [];
-      let url = `https://api.rawg.io/api/games?key=${API_KEY}`;
-
-      for (let i = 0; i < 5; i++) {
-        let games = await axios.get(url);
-        games.data?.results.forEach((g) => {
-          apiPlatforms.push({
-            platforms: g.platforms
-              .map((p) => p.platform)
-              .map(({ id, name }) => {
-                return { id, name };
-              }),
-          });
-        });
-        url = games.data.next;
-      }
-      apiPlatforms.map((p) => {
-        p.platforms.map((p) => {
-          Platform.findOrCreate({
-            where: {
-              name: p.name,
-              id: p.id,
-            },
-          });
-        });
-      });
+      platforms = await platformsApi.data.results.map((platform) => ({
+        id: platform.id,
+        name: platform.name,
+      }));
+      await Platform.bulkCreate(platforms);
+      platforms = await Platform.findAll();
     }
-    let platformsDbfinal = Platform.findAll();
-    return platformsDbfinal;
+    return platforms;
+
+    // let platformsDb = Platform.findAll();
+
+    // if (!platformsDb.length) {
+    //   console.log("no existe platforms en la db")
+    //   let apiPlatforms = [];
+    //   let url = `https://api.rawg.io/api/games?key=${API_KEY}`;
+
+    //   for (let i = 0; i < 5; i++) {
+    //     let games = await axios.get(url);
+    //     games.data?.results.forEach((g) => {
+    //       apiPlatforms.push({
+    //         platforms: g.platforms
+    //           .map((p) => p.platform)
+    //           .map(({ id, name }) => {
+    //             return { id, name };
+    //           }),
+    //       });
+    //     });
+    //     url = games.data.next;
+    //   }
+    //   apiPlatforms.map((p) => {
+    //     p.platforms.map((p) => {
+    //       Platform.findOrCreate({
+    //         where: {
+    //           name: p.name,
+    //           id: p.id,
+    //         },
+    //       });
+    //     });
+    //   });
+    // }
+    // let platformsDbfinal = Platform.findAll();
+    // return platformsDbfinal;
   },
 
   getGameById: async (id) => {
