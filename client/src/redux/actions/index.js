@@ -17,17 +17,23 @@ import {
 import axios from "axios";
 
 export const getAllGames = () => async (dispatch) => {
-  let allGames = await axios.get("http://localhost:3001/games");
+  let allGames = await axios.get(
+    "https://videogames-pi-production.up.railway.app/games"
+  );
   return dispatch({ type: GET_ALL_GAMES, payload: allGames });
 };
 
 export const getQueryGames = (name) => async (dispatch) => {
-  let queryGames = await axios.get(`http://localhost:3001/games?name=${name}`);
+  let queryGames = await axios.get(
+    `https://videogames-pi-production.up.railway.app/games?name=${name}`
+  );
   return dispatch({ type: GET_QUERY_GAMES, payload: queryGames });
 };
 
 export const getAllGenres = () => async (dispatch) => {
-  let allGenres = await axios.get("http://localhost:3001/genres");
+  let allGenres = await axios.get(
+    "https://videogames-pi-production.up.railway.app/genres"
+  );
   return dispatch({ type: GET_ALL_GENRES, payload: allGenres });
 };
 
@@ -36,12 +42,16 @@ export const filterByGenre = (payload) => {
 };
 
 export const getAllPlatforms = () => async (dispatch) => {
-  let allPlatforms = await axios.get("http://localhost:3001/platforms");
+  let allPlatforms = await axios.get(
+    "https://videogames-pi-production.up.railway.app/platforms"
+  );
   return dispatch({ type: GET_ALL_PLATFORMS, payload: allPlatforms });
 };
 
 export const getGamesById = (id) => async (dispatch) => {
-  let game = await axios.get(`http://localhost:3001/game/${id}`);
+  let game = await axios.get(
+    `https://videogames-pi-production.up.railway.app/game/${id}`
+  );
   return dispatch({ type: GET_GAME_BY_ID, payload: game });
 };
 
@@ -69,10 +79,16 @@ export const clearGame = () => {
 };
 
 export const clearGames = () => {
-  return { type: CLEAR_GAMES }
-}
+  return { type: CLEAR_GAMES };
+};
 
 export const createGame = (payload) => async (dispatch) => {
-  const newGame = await axios.post("http://localhost:3001/games", payload);
-  return dispatch({ type: CREATE_GAME, payload: newGame.data.id ? newGame.data.id : "Error" });
+  const newGame = await axios.post(
+    "https://videogames-pi-production.up.railway.app/games",
+    payload
+  );
+  return dispatch({
+    type: CREATE_GAME,
+    payload: newGame.data.id ? newGame.data.id : "Error",
+  });
 };
