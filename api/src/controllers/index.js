@@ -92,12 +92,12 @@ module.exports = {
     });
 
     const allGames = [...apiGames, ...dbGames];
-    let gameExist = allGames.filter(g => g.name === name)
-    if(gameExist.length) {
-      return true
+    let gameExist = allGames.filter((g) => g.name === name);
+    if (gameExist.length) {
+      return true;
     } else {
-      return false
-    } 
+      return false;
+    }
   },
 
   getAllGamesWithQuery: async (name) => {
@@ -150,6 +150,7 @@ module.exports = {
   getAllGenres: async () => {
     let genres = await Genre.findAll();
     if (!genres.length) {
+      console.log("no existe genres en la db")
       const genresApi = await axios.get(
         `http://api.rawg.io/api/genres?key=${API_KEY}`
       );
@@ -168,6 +169,7 @@ module.exports = {
     let platformsDb = Platform.findAll();
 
     if (!platformsDb.length) {
+      console.log("no existe platforms en la db")
       let apiPlatforms = [];
       let url = `https://api.rawg.io/api/games?key=${API_KEY}`;
 
@@ -195,8 +197,8 @@ module.exports = {
         });
       });
     }
-    platformsDb = Platform.findAll();
-    return platformsDb;
+    let platformsDbfinal = Platform.findAll();
+    return platformsDbfinal;
   },
 
   getGameById: async (id) => {
