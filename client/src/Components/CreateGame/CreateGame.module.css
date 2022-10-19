@@ -9,7 +9,7 @@
   flex-direction: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 9.3vh;
+  margin-top: 12vh;
   overflow-y: auto;
 }
 
@@ -178,7 +178,7 @@
 @media (max-height: 915px) {
   .formContainer {
     width: auto;
-    max-height: 95vh;
+    max-height: 100vh;
     margin-top: 130px;
     margin-left: 0;
     display: flex;
