@@ -13,7 +13,6 @@ export default function LandingPage() {
         <div className={s.textcontainer}>
           <br></br>
           <br></br>
-          <h3>HENRY'S PI</h3>
           <h1>
             FIND YOUR
             <br />
