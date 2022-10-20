@@ -47,9 +47,23 @@
 
 @media (max-width: 1300px) {
   .cardcontainer img {
-    max-height: 20vh;
-    min-height: 10vh;
+    max-height: 16vh;
+    min-height: 16vh;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
+  }
+
+  .cardcontainer {
+    border: 2px solid #ffffffe6;
+    max-height: 180px;
+    min-height: 180px;
+    max-width: 210px;
+    margin: 20px 50px 20px 50px;
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 15px;
+    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    transition: 0.3s;
   }
 }

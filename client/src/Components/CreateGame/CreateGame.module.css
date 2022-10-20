@@ -9,7 +9,7 @@
   flex-direction: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 0vh;
+  margin-top: 50px;
   overflow-y: auto;
 }
 
@@ -146,36 +146,9 @@
   margin-left: 10px;
 }
 
+
+
 @media (max-width: 1300px) {
-  .input {
-    padding: 5px;
-    border-radius: 5px;
-    border: none;
-    border: 2px solid transparent;
-  }
-
-  .formContainer label {
-    margin-top: 0.2vh;
-  }
-
-  .formContainer {
-    width: auto;
-    height: auto;
-    margin-top: 2vh;
-    margin-left: 5vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .formContainer form {
-    display: flex;
-    flex-direction: column;
-  }
-}
-
-@media (max-height: 915px) {
   .formContainer {
     width: auto;
     max-height: 100vh;
@@ -220,7 +193,7 @@
   }
 
   .formContainer label p {
-    font-size: 1vh;
+    font-size: 15px;
     margin-left: 3px;
   }
 
